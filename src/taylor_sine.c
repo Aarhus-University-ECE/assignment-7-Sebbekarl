@@ -14,11 +14,10 @@ double factorial(double num){
 bool check_pre(double num,double num2, int n){
     double pre = pow(10, -n);
 
-    printf("%f", fabs(num-num2));
+    //printf("%f", fabs(num-num2));
 
     if(fabs(num-num2) > pre){
         return true;
-        printf("true");
     }else{
         return false;
     }
@@ -30,13 +29,14 @@ double taylor_sine(double x, int n)
 {
     double result = x;
     double oldres = 0;
-    //printf("%lf test", result);
+    //printf("%d test", check_pre(result,oldres,n));
 
-    for(int i; !check_pre(result,oldres,n); i++){
+    for(int i = 1; check_pre(result,oldres,n); i++){
         
         oldres = result;
-        result += (pow(x,2*i+1)/factorial(2*i+1));
-        //printf("%lf",result);
+        if (i % 2 == 1) result -= (pow(x,2*i+1)/factorial(2*i+1));
+        if (i % 2 == 0) result += (pow(x,2*i+1)/factorial(2*i+1));
+        printf("%lf, ",result);
 
     }
 
