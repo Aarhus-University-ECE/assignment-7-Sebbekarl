@@ -4,6 +4,7 @@
 #include <math.h>
 
 double factorial(double num){
+    
     double res = 1;
     for(int i = 1; i<num+1; i++){
         res *= i;
