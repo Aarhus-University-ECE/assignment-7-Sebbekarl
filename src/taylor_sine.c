@@ -35,15 +35,11 @@ double taylor_sine(double x, int n)
 
     for (int i = 1; check_pre(result, oldres, n); i++)
     {
-
         oldres = result;
         if (i % 2 == 1)
             result -= (pow(x, 2 * i + 1) / factorial(2 * i + 1));
         if (i % 2 == 0)
             result += (pow(x, 2 * i + 1) / factorial(2 * i + 1));
-
-        //printf("%lf, ", factorial(2 * i + 1));
     }
-
     return result;
 }
