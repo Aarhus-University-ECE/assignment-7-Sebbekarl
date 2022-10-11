@@ -30,10 +30,11 @@ bool check_pre(double num, double num2, int n)
 
 double taylor_sine(double x, int n)
 {
+    int i;
     double result = x;
     double oldres = 0;
 
-    for (int i = 1; check_pre(result, oldres, n); i++)
+    for (i = 1; check_pre(result, oldres, n); i++)
     {
         oldres = result;
         if (i % 2 == 1)
@@ -41,5 +42,6 @@ double taylor_sine(double x, int n)
         if (i % 2 == 0)
             result += (pow(x, 2 * i + 1) / factorial(2 * i + 1));
     }
+    printf("%d, ",i);
     return result;
 }
